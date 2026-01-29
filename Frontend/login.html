@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-service Portal</title>
+
+    <!-- INTERNAL CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding-top: 40px;
+        }
+
+        .logo {
+            width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 5px;
+        }
+
+        .input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #003f80;
+        }
+
+        a {
+            display: block;
+            margin-top: 12px;
+            text-align: center;
+        }
+    </style>
+
+    <!-- SWEETALERT2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+    <img class="logo" src="https://academy.mindworx.co.za/pluginfile.php/1/theme_remui/loginpanellogo/1717241280/mdwx_academy_2.png" />
+
+    <div class="container">
+        <form action="/login" method="POST">
+            <h1>LEARNER PORTAL</h1>
+
+            <label>Username</label>
+            <input type="text" class="input" name="username" id="username">
+
+            <label>Password</label>
+            <input type="password" class="input" name="password" id="password">
+
+            <button class="button" type="submit">LOGIN</button>
+
+            <a href="#">Forgot password</a>
+        </form>
+    </div>
+
+    <!-- FLASH MESSAGES POPUP -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <script>
+          {% for category, message in messages %}
+            Swal.fire({
+              icon: "{{ 'error' if category == 'error' else 'success' }}",
+              title: "{{ message }}",
+              confirmButtonText: "OK"
+            });
+          {% endfor %}
+        </script>
+      {% endif %}
+    {% endwith %}
+
+</body>
+</html>

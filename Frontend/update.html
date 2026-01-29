@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <link rel="stylesheet" href="../static/update.css">
+</head>
+<body>
+     
+    <form action="{{ url_for('update_learner', personal_id=personal_id) }}" method="POST">
+        <div>
+          <img class="logo" line-height="300px" width="200px" src="https://academy.mindworx.co.za/pluginfile.php/1/theme_remui/loginpanellogo/1717241280/mdwx_academy_2.png" />
+      </div>
+
+      <h1>UPDATE DETAILS</h1>
+
+      <label for="name">First Name</label>
+      <br>
+      <input type="text" name="first_name">
+
+      <div>
+        <label for="last-name">Last Name</label>
+        <br>
+        <input type="text" name="last_name">
+      </div>
+
+      <label>ID Number</label>
+      <br>
+      <input type="text" name="id_no" maxlength="13">
+
+      <div class="contact-number">
+        <label for="contact" id="contact-number">Cellular Number</label>
+        <br>
+        <input type="text" name="cellular_number" maxlength="10" pattern="[0-9]+">
+      </div>
+
+      <div>
+        <label for="tax-number">Tax Reference</label>
+        <br>
+        <input type="text" name="tax_reference" maxlength="10">
+      </div>
+
+      <div>
+        <label for="group">Group</label>
+        <br>
+        <input type="text" name="group_name">
+      </div>
+
+      <div>
+        <label for="start-date" id="start-date">Start date</label>
+        <br>
+        <input type="date" name="start_date">
+      </div>
+
+      <h2>Banking Information</h2>
+
+      <div>
+        <label for="account-name">Account Name</label>
+        <br>
+        <input type="text" name="account_name">
+      </div>
+
+      <div>
+        <label for="bank">Bank</label>
+        <br>
+        <input type="text" name="bank">
+      </div>
+
+      <div>
+        <label for="account-no">Account No</label>
+        <br>
+        <input type="text" name="account_no">
+      </div>
+
+      <div>
+        <label for="type-of-account">Type of Account</label>
+        <br>
+        <input type="text" name="account_type">
+      </div>
+
+      <div>
+        <label for="branch">Branch</label>
+        <br>
+        <input type="text" name="branch">
+      </div>
+
+      <div>
+        <label for="branch-code">Branch Code</label>
+        <br>
+        <input type="text" name="branch_code">
+      </div>
+
+      <div class="buttons">
+
+        <button type="submit" id="updat-btn">Update</button>
+
+        <button id="cancel" onclick="window.location.href='{{ url_for('view_learn') }}'">
+            Cancel
+        </button>
+      </div>
+
+      <footer>
+        Copyright © 2025 Mindworx | Privacy Policy
+      </footer>
+    </form>
+</body>
+</html>
